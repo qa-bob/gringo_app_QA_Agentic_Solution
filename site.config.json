@@ -1,6 +1,6 @@
-﻿{
+{
     "name":  "GrinGO App",
-    "url":  "http://www.gringoapp.com",
+    "url":  "https://gringoapp.com",
     "description":  "",
     "industry":  "",
     "hasContactForm":  true,
@@ -12,8 +12,8 @@
                       "mobile",
                       "tablet"
                   ],
-    "skipVisual":  false,
-    "skipForms":  false,
+    "skipVisual":  true,
+    "skipForms":  true,
     "auth":  {
                  "required":  false,
                  "loginUrl":  "",

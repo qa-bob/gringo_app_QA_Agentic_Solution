@@ -111,10 +111,9 @@ export class NavigationPage extends BasePage {
     const isExpanded = await toggle.getAttribute('aria-expanded');
     if (isExpanded === 'true') return; // Already open
 
-    await toggle.click();
-
-    // Wait briefly for animation
-    await this.page.waitForTimeout(400);
+    // force: true bypasses stability check — the toggle is animated on this site
+    await toggle.click({ force: true });
+    await this.page.waitForLoadState('domcontentloaded');
   }
 
   // ── Link reachability ────────────────────────────────────────────────────────

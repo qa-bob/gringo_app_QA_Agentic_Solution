@@ -73,6 +73,9 @@ export class HomePage extends BasePage {
    * Falls back to first <h2> if no <h1> exists (some SPAs render h2 first).
    */
   async getMainHeading(): Promise<string> {
+    // Wait for any heading — needed on some viewport widths where content loads async
+    await this.page.waitForSelector('h1, h2', { timeout: 8_000 }).catch(() => null);
+
     const h1 = this.page.locator('h1').first();
     if (await h1.count() > 0) {
       return (await h1.textContent())?.trim() ?? '';
